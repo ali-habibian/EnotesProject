@@ -12,3 +12,8 @@
     color: black;
     border-radius: 10px;
 }
+
+.div-color {
+    background-image: linear-gradient(to right top, #de85fd, #b78aff, #8c8dfe, #5d8ef7, #128deb);
+    height: 500px;
+}
