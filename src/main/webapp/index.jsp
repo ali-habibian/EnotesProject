@@ -2,13 +2,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        .back-img {
+            background-image: url("https://i.postimg.cc/NfngNyzs/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 80vh;
+        }
+    </style>
     <title>Home Page</title>
-    <%@include file="all_component/allcss.jsp"%>
+    <%@include file="all_component/allcss.jsp" %>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<%@include file="all_component/navbar.jsp" %>
+<div class="container-fluid back-img">
+
+</div>
 </body>
 </html>
