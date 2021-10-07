@@ -4,6 +4,7 @@ import io.github.alihabibian.enotsproject.user.UserDetails;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
@@ -14,8 +15,8 @@ public class UserDao {
         this.conn = conn;
     }
 
-    public boolean addUser(UserDetails userDetails) {
-        boolean isAdded = false;
+    public boolean registerUser(UserDetails userDetails) {
+        boolean isRegistered = false;
         //language=SQL
         String query = "INSERT INTO `e_notes`.`user` (name, email, password) VALUES (?, ?, ?)";
         try {
@@ -27,10 +28,31 @@ public class UserDao {
             int result = ps.executeUpdate();
 
             if (result == 1)
-                isAdded = true;
+                isRegistered = true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return isAdded;
+        return isRegistered;
+    }
+
+    public boolean loginUser(UserDetails userDetails) {
+        boolean isLogin = false;
+        String query = "SELECT * FROM user WHERE email=? AND password=?";
+
+        try {
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, userDetails.getEmail());
+            ps.setString(2, userDetails.getPassword());
+
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next())
+                isLogin = true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isLogin;
     }
 }

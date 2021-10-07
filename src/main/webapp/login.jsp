@@ -21,16 +21,28 @@
                     <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
                     <h4>Login Page</h4>
                 </div>
+
+                <%
+                    String loginFailedMsg = (String) session.getAttribute("login-failed");
+                    if (loginFailedMsg != null) {%>
+                <div class="alert alert-danger" role="alert">
+                    <%=loginFailedMsg%>
+                </div>
+                <%
+                        session.removeAttribute("login-failed");
+                    }
+                %>
+
                 <div class="card-body">
-                    <form>
+                    <form action="LoginServlet" method="post" accept-charset="UTF-8">
                         <div class="form-group">
                             <label for="InputEmail">Enter Your Email</label>
                             <input type="email" class="form-control" id="InputEmail"
-                                   aria-describedby="emailHelp">
+                                   aria-describedby="emailHelp" name="uEmail">
                         </div>
                         <div class="form-group">
                             <label for="InputPassword">Enter Your Password</label>
-                            <input type="password" class="form-control" id="InputPassword">
+                            <input type="password" class="form-control" id="InputPassword" name="uPassword">
                         </div>
 
                         <button type="submit" class="btn btn-primary badge-pill btn-block">Login</button>

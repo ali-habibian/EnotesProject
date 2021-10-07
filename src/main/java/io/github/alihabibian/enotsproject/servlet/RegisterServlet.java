@@ -26,17 +26,14 @@ public class RegisterServlet extends HttpServlet {
         userDetails.setPassword(password);
 
         UserDao dao = new UserDao(DbConnect.getConn());
-        boolean isAdded = dao.addUser(userDetails);
+        boolean isRegistered = dao.registerUser(userDetails);
 
-        HttpSession session;
-        if (isAdded) {
-            session = request.getSession();
+        HttpSession session = request.getSession();
+        if (isRegistered) {
             session.setAttribute("reg-success", "Registration Successfully...");
-            response.sendRedirect("register.jsp");
         } else {
-            session = request.getSession();
             session.setAttribute("reg-failed", "Something went wrong on server...");
-            response.sendRedirect("register.jsp");
         }
+        response.sendRedirect("register.jsp");
     }
 }
