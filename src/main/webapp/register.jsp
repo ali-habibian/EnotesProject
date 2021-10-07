@@ -45,7 +45,7 @@
                 %>
 
                 <div class="card-body">
-                    <form action="RegisterServlet" method="post">
+                    <form action="RegisterServlet" method="post" accept-charset="UTF-8">
                         <div class="form-group">
                             <label for="InputFullName">Enter Your Full Name</label>
                             <input type="text" class="form-control" id="InputFullName"
