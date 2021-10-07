@@ -19,11 +19,6 @@
 <body>
 <%@include file="all_component/navbar.jsp" %>
 
-<%
-    Connection conn = DbConnect.getConn();
-    System.out.println(conn);
-%>
-
 <div class="container-fluid back-img">
     <div class="text-center">
         <h1 class="text-white"><i class="fa fa-book" aria-hidden="true"></i> E-Notes Save Your Notes</h1>

@@ -21,21 +21,44 @@
                     <i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
                     <h4>Registration</h4>
                 </div>
+
+                <%
+                    String regSuccessMsg = (String) session.getAttribute("reg-success");
+                    if (regSuccessMsg != null) {%>
+                <div class="alert alert-success" role="alert">
+                    <%=regSuccessMsg%> For login <a href="login.jsp">click here</a>
+                </div>
+                <%
+                        session.removeAttribute("reg-success");
+                    }
+                %>
+
+                <%
+                    String regFailedMsg = (String) session.getAttribute("reg-failed");
+                    if (regFailedMsg != null) {%>
+                <div class="alert alert-danger" role="alert">
+                    <%=regFailedMsg%>
+                </div>
+                <%
+                        session.removeAttribute("reg-failed");
+                    }
+                %>
+
                 <div class="card-body">
-                    <form>
+                    <form action="UserServlet" method="post">
                         <div class="form-group">
                             <label for="InputFullName">Enter Your Full Name</label>
                             <input type="text" class="form-control" id="InputFullName"
-                                   aria-describedby="emailHelp">
+                                   aria-describedby="emailHelp" name="fName">
                         </div>
                         <div class="form-group">
                             <label for="InputEmail">Enter Your Email</label>
                             <input type="email" class="form-control" id="InputEmail"
-                                   aria-describedby="emailHelp">
+                                   aria-describedby="emailHelp" name="uEmail">
                         </div>
                         <div class="form-group">
                             <label for="InputPassword">Enter Your Password</label>
-                            <input type="password" class="form-control" id="InputPassword">
+                            <input type="password" class="form-control" id="InputPassword" name="uPassword">
                         </div>
 
                         <button type="submit" class="btn btn-primary badge-pill btn-block">Register</button>

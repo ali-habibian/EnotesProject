@@ -17,7 +17,7 @@ public class UserDao {
     public boolean addUser(UserDetails userDetails) {
         boolean isAdded = false;
         //language=SQL
-        String query = "INSERT INTO `e_notes`.`user` () VALUES (?,?,?)";
+        String query = "INSERT INTO `e_notes`.`user` (name, email, password) VALUES (?, ?, ?)";
         try {
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, userDetails.getName());
