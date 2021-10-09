@@ -1,6 +1,7 @@
 package io.github.alihabibian.enotsproject.user;
 
 public class UserDetails {
+    private int id;
     private String name;
     private String email;
     private String password;
@@ -13,6 +14,14 @@ public class UserDetails {
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

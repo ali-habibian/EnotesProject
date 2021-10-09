@@ -22,12 +22,13 @@ public class LoginServlet extends HttpServlet {
         userDetails.setPassword(password);
 
         UserDao dao = new UserDao(DbConnect.getConn());
-        boolean isLogin = dao.loginUser(userDetails);
+        UserDetails user = dao.loginUser(userDetails);
 
-        if (isLogin){
+        HttpSession session = request.getSession();
+        if (user != null) {
+            session.setAttribute("userD", user);
             response.sendRedirect("home.jsp");
-        }else {
-            HttpSession session = request.getSession();
+        } else {
             session.setAttribute("login-failed", "Invalid Email or Password...");
             response.sendRedirect("login.jsp");
         }

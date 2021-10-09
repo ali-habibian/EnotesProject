@@ -9,8 +9,19 @@
 <html>
 <head>
     <title>Home</title>
+    <%@include file="all_component/allcss.jsp" %>
 </head>
 <body>
-<h1>Home</h1>
+<%@include file="all_component/navbar.jsp" %>
+<div class="container-fluid">
+    <div class="card py-5">
+        <div class="card-body text-center">
+            <img class="img-fluid mx-auto" src="https://i.postimg.cc/8PvtnMGR/paper.png" style="max-width: 350px;">
+            <h1>START TAKING YOUR NOTES</h1>
+            <a href="" class="btn btn-outline-primary">Start Here</a>
+        </div>
+    </div>
+</div>
+<%@include file="all_component/footer.jsp"%>
 </body>
 </html>
