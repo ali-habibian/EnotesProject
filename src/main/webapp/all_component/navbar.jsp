@@ -15,11 +15,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.jsp"><i class="fa fa-home" aria-hidden="true"></i> Home<span
+                <a class="nav-link" href="home.jsp"><i class="fa fa-home" aria-hidden="true"></i> Home<span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Notes</a>
+                <a class="nav-link" href="addNotes.jsp"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+                    Notes</a>
             </li>
 
             <li class="nav-item">
@@ -28,15 +29,15 @@
         </ul>
 
         <%
-            User user = (User) session.getAttribute("userD");
-            if (user != null) {%>
+            User user2 = (User) session.getAttribute("userD");
+            if (user2 != null) {%>
         <!-- Button trigger modal -->
         <a href="" class="btn btn-light my-2 my-sm-0 mr-2" data-toggle="modal" data-target="#exampleModal"
            type="submit">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-            <%= user.getName()%>
+            <%= user2.getName()%>
         </a>
-        <a href="register.jsp" class="btn btn-light my-2 my-sm-0" type="submit">
+        <a href="LogoutServlet" class="btn btn-light my-2 my-sm-0" type="submit">
             <i class="fa fa-user-plus" aria-hidden="true"></i> Logout</a>
 
         <!-- Modal -->
@@ -60,19 +61,19 @@
                                 <tbody>
                                 <tr>
                                     <th>User Id</th>
-                                    <td><%= user.getId()%>
+                                    <td><%= user2.getId()%>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <th>Full Name</th>
-                                    <td><%= user.getName()%>
+                                    <td><%= user2.getName()%>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <th>Email Address</th>
-                                    <td><%= user.getEmail()%>
+                                    <td><%= user2.getEmail()%>
                                     </td>
                                 </tr>
                                 </tbody>

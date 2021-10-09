@@ -6,6 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User user3 = (User) session.getAttribute("userD");
+    if (user3 == null){
+        response.sendRedirect("login.jsp");
+        session.setAttribute("login-error", "Please login...");
+    }
+%>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Home</title>

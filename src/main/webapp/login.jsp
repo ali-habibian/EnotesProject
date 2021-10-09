@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
@@ -30,6 +31,22 @@
                 </div>
                 <%
                         session.removeAttribute("login-failed");
+                    }
+
+                    String withoutLoginMsg = (String) session.getAttribute("login-error");
+                    if (withoutLoginMsg != null) {%>
+                <div class="alert alert-danger" role="alert"><%=withoutLoginMsg%>
+                </div>
+                <%
+                        session.removeAttribute("login-error");
+                    }
+
+                    String logoutMsg = (String) session.getAttribute("logoutMsg");
+                    if (logoutMsg != null) {%>
+                <div class="alert alert-success" role="alert"><%=logoutMsg%>
+                </div>
+                <%
+                        session.removeAttribute("logoutMsg");
                     }
                 %>
 

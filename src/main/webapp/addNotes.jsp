@@ -6,6 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    User user = (User) session.getAttribute("userD");
+    if (user == null){
+        response.sendRedirect("login.jsp");
+        session.setAttribute("login-error", "Please login...");
+    }
+%>
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Add Notes</title>
@@ -21,7 +31,14 @@
                 <form action="AddNotesServlet" method="post" accept-charset="UTF-8">
                     <div class="form-group">
 
-                        <input type="hidden" value="<%=user.getId()%>" name="uid">
+                        <%
+                            User user1 = (User) session.getAttribute("userD");
+                            if (user1 != null) {%>
+                        <input type="hidden" value="<%=user1.getId()%>" name="uid">
+                        <%
+                            }
+                        %>
+
 
                         <label for="title">Enter Title</label>
                         <input type="text" class="form-control" id="title" name="title" required="required">
