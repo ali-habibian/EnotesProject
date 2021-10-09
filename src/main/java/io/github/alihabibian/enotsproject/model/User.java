@@ -1,16 +1,16 @@
-package io.github.alihabibian.enotsproject.user;
+package io.github.alihabibian.enotsproject.model;
 
-public class UserDetails {
+public class User {
     private int id;
     private String name;
     private String email;
     private String password;
 
-    public UserDetails() { // Default constructor
+    public User() { // Default constructor
         super();
     }
 
-    public UserDetails(String name, String email, String password) {
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;

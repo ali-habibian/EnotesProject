@@ -1,6 +1,6 @@
 package io.github.alihabibian.enotsproject.dao;
 
-import io.github.alihabibian.enotsproject.user.UserDetails;
+import io.github.alihabibian.enotsproject.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ public class UserDao {
         this.conn = conn;
     }
 
-    public boolean registerUser(UserDetails userDetails) {
+    public boolean registerUser(User userDetails) {
         boolean isRegistered = false;
         //language=SQL
         String query = "INSERT INTO `e_notes`.`user` (name, email, password) VALUES (?, ?, ?)";
@@ -35,8 +35,8 @@ public class UserDao {
         return isRegistered;
     }
 
-    public UserDetails loginUser(UserDetails userDetails) {
-        UserDetails user = null;
+    public User loginUser(User userDetails) {
+        User user = null;
         String query = "SELECT * FROM user WHERE email=? AND password=?";
 
         try {
@@ -47,7 +47,7 @@ public class UserDao {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                user = new UserDetails();
+                user = new User();
                 user.setId(resultSet.getInt("id"));
                 user.setName(resultSet.getString("name"));
                 user.setEmail(resultSet.getString("email"));

@@ -1,4 +1,4 @@
-<%@ page import="io.github.alihabibian.enotsproject.user.UserDetails" %><%--
+<%@ page import="io.github.alihabibian.enotsproject.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Ali
   Date: 10/6/2021
@@ -28,7 +28,7 @@
         </ul>
 
         <%
-            UserDetails user = (UserDetails) session.getAttribute("userD");
+            User user = (User) session.getAttribute("userD");
             if (user != null) {%>
         <!-- Button trigger modal -->
         <a href="" class="btn btn-light my-2 my-sm-0 mr-2" data-toggle="modal" data-target="#exampleModal"

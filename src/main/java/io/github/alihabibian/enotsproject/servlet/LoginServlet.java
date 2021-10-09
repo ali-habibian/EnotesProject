@@ -2,7 +2,7 @@ package io.github.alihabibian.enotsproject.servlet;
 
 import io.github.alihabibian.enotsproject.dao.UserDao;
 import io.github.alihabibian.enotsproject.db.DbConnect;
-import io.github.alihabibian.enotsproject.user.UserDetails;
+import io.github.alihabibian.enotsproject.model.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,12 +17,12 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("uEmail");
         String password = request.getParameter("uPassword");
 
-        UserDetails userDetails = new UserDetails();
+        User userDetails = new User();
         userDetails.setEmail(email);
         userDetails.setPassword(password);
 
         UserDao dao = new UserDao(DbConnect.getConn());
-        UserDetails user = dao.loginUser(userDetails);
+        User user = dao.loginUser(userDetails);
 
         HttpSession session = request.getSession();
         if (user != null) {

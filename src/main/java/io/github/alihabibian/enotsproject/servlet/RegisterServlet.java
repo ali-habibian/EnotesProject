@@ -2,7 +2,7 @@ package io.github.alihabibian.enotsproject.servlet;
 
 import io.github.alihabibian.enotsproject.dao.UserDao;
 import io.github.alihabibian.enotsproject.db.DbConnect;
-import io.github.alihabibian.enotsproject.user.UserDetails;
+import io.github.alihabibian.enotsproject.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("uEmail");
         String password = request.getParameter("uPassword");
 
-        UserDetails userDetails = new UserDetails();
+        User userDetails = new User();
         userDetails.setName(name);
         userDetails.setEmail(email);
         userDetails.setPassword(password);
