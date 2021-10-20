@@ -22,9 +22,10 @@ public class AddNotesServlet extends HttpServlet {
         PostDao dao = new PostDao(DbConnect.getConn());
         boolean isAdded = dao.addNote(title, content, uid);
 
-        if (isAdded)
+        if (isAdded) {
             System.out.println("Data is Added");
-        else
+            response.sendRedirect("showNotes.jsp");
+        } else
             System.out.println("Data not added");
     }
 }

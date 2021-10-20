@@ -1,4 +1,7 @@
-<%--
+<%@ page import="io.github.alihabibian.enotsproject.dao.PostDao" %>
+<%@ page import="io.github.alihabibian.enotsproject.db.DbConnect" %>
+<%@ page import="io.github.alihabibian.enotsproject.model.Post" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Ali
   Date: 10/21/2021
@@ -26,26 +29,38 @@
     <h2 class="text-center">All Notes:</h2>
     <div class="row">
         <div class="col-md-12">
-            <div class="card mt-3">
-                <img src="img/paper.png" class="card card-img-top mt-2 mx-auto" style="max-width: 100px;" alt="">
+            <%
+                if (user != null) {
+                    PostDao postDao = new PostDao(DbConnect.getConn());
+                    List<Post> posts = postDao.getData(user.getId());
+                    for (Post post : posts) {
+            %>
+                        <div class="card mt-3">
+                            <img src="img/paper.png" class="card card-img-top mt-2 mx-auto" style="max-width: 100px;" alt="">
 
-                <div class="card-body p-4">
-                    <h5 class="card-title">What is java?</h5>
-                    <p>Java is awesome language</p>
+                            <div class="card-body p-4">
 
-                    <p>
-                        <b class="text-success">Published By: </b><br><b class="text-primary">Ali Habibian</b>
-                    </p>
-                    <p>
-                        <b class="text-success">Published Date: </b><br><b class="text-success">2021/06/03</b>
-                    </p>
+                                <h5 class="card-title"><%=post.getTitle()%></h5>
+                                <p><%=post.getContent()%></p>
 
-                    <div class="container text-center mt-2">
-                        <a href="DeleteServlet?note_id=" class="btn btn-danger">Delete</a>
-                        <a href="edit.jsp?note_id=" class="btn btn-primary">Edit</a>
-                    </div>
-                </div>
-            </div>
+                                <p>
+                                    <b class="text-success">Published By: </b><br><b class="text-primary"><%=user.getName()%></b>
+                                </p>
+                                <p>
+                                    <b class="text-success">Published Date: </b><br><b class="text-success"><%=post.getpDate()%></b>
+                                </p>
+
+                                <div class="container text-center mt-2">
+                                    <a href="DeleteServlet?note_id=" class="btn btn-danger">Delete</a>
+                                    <a href="edit.jsp?note_id=" class="btn btn-primary">Edit</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    <%
+                        }
+                    }
+                    %>
         </div>
     </div>
 </div>
