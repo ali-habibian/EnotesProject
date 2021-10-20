@@ -24,7 +24,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-sticky-note" aria-hidden="true"></i> Show Notes</a>
+                <a class="nav-link" href="showNotes.jsp"><i class="fa fa-sticky-note" aria-hidden="true"></i> Show Notes</a>
             </li>
         </ul>
 

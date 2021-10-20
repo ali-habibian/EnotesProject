@@ -24,7 +24,8 @@
 <div class="container-fluid">
     <div class="card py-5">
         <div class="card-body text-center">
-            <img class="img-fluid mx-auto" src="https://i.postimg.cc/8PvtnMGR/paper.png" style="max-width: 350px;">
+<%--            <img class="img-fluid mx-auto" src="https://i.postimg.cc/8PvtnMGR/paper.png" style="max-width: 350px;">--%>
+            <img class="img-fluid mx-auto" src="img/paper.png" style="max-width: 350px;">
             <h1>START TAKING YOUR NOTES</h1>
             <a href="addNotes.jsp" class="btn btn-outline-primary">Start Here</a>
         </div>
