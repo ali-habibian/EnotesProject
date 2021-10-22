@@ -12,6 +12,7 @@ import java.io.IOException;
 public class NoteEditServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         int noteId = Integer.parseInt(request.getParameter("noteId"));
         String title = request.getParameter("title");
         String content = request.getParameter("content");

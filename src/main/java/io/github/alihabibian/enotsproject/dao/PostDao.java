@@ -102,4 +102,19 @@ public class PostDao {
         }
         return isUpdated;
     }
+
+    public boolean deleteNote(int noteId) {
+        boolean isDeleted = false;
+        //language=MySQL
+        String query = "DELETE FROM e_notes.post WHERE id=?";
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setInt(1, noteId);
+            int result = ps.executeUpdate();
+            if (result == 1)
+                isDeleted = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return isDeleted;
+    }
 }
