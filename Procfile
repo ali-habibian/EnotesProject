@@ -1,1 +1,1 @@
-web: java -jar target/EnotsProject-1.0-SNAPSHOT
+web: java target/EnotsProject-1.0-SNAPSHOT
