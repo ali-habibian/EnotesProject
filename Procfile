@@ -1,1 +1,1 @@
-web: java target/EnotsProject-1.0-SNAPSHOT
+web: bundle exec rails server -p $PORT
