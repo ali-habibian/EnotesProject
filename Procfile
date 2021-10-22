@@ -1,1 +1,1 @@
-web: bundle exec rails server -p 8080
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* io.github.ali-habibian.EnotsProject
