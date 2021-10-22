@@ -1,1 +1,3 @@
- $ java -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
+
+ $ java -jar target/dependency/webapp-runner.jar target/*.war
+
